@@ -3,7 +3,8 @@
  */
 
 import {AppRegistry} from 'react-native';
-import NfcClassPoints from './src/NfcClassPoints';
+import NfcClassPoints from './NfcClassPoints';
 import {name as appName} from './app.json';
 
 AppRegistry.registerComponent(appName, () => NfcClassPoints);
+AppRegistry.runApplication(appName, {rootTag: document.getElementById('root')});
