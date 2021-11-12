@@ -1,18 +1,30 @@
-import React from 'react';
-import {Button, Text, View} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {Text, View} from 'react-native';
 
+import StudentNameHeader from '../../components/Character/StudentNameHeader/StudentNameHeader';
+import CharacterNameHeader from '../../components/Character/CharacterNameHeader/CharacterNameHeader';
+
+import {initNfc, readNdef} from './Character.functions';
 import styles from './Character.style';
 
-const Character = () => {
+const Character = props => {
+  const [asciiNFC, setAsciiNFC] = useState(null);
+  const [cardInfo, setCardInfo] = useState(null);
+
+  useEffect(() => {
+    initNfc;
+    let objectHelper = {setAsciiNFC, setCardInfo};
+    setAsciiNFC(readNdef(objectHelper));
+  }, []);
+
+  useEffect(() => {
+    console.log(cardInfo);
+  });
+
   return (
     <View style={styles.characterContainer}>
-      <Text style={styles.Name}>Student Name</Text>
-      <Button
-        title="Hi"
-        onPress={async () => {
-          console.log('scan card');
-        }}
-      />
+      <StudentNameHeader cardInfo={cardInfo} />
+      <CharacterNameHeader />
     </View>
   );
 };

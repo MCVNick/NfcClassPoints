@@ -18,7 +18,6 @@ const Navbar = () => {
           tabBarLabelStyle: styles.tabBarLabel,
         }}>
         <Tab.Screen name="Character" component={Character} />
-        <Tab.Screen name="Format" component={DefaultScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );
