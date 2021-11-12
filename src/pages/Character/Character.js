@@ -17,10 +17,6 @@ const Character = props => {
     setAsciiNFC(readNdef(objectHelper));
   }, []);
 
-  useEffect(() => {
-    console.log(cardInfo);
-  });
-
   return (
     <View style={styles.characterContainer}>
       <StudentNameHeader cardInfo={cardInfo} />
